@@ -52,6 +52,15 @@ echo "🛠️  Building binaries..."
 $DOTFILES/build.sh
 echo "🛠️  Building binaries... done."
 
+
+# Install Home Manager configuration
+echo ""
+echo "🚀  Applying Home Manager configuration..."
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
+nix-shell '<home-manager>' -A install
+
+
 # Apply Home Manager configuration
 echo ""
 echo "🚀  Applying Home Manager configuration..."

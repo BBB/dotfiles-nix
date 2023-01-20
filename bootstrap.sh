@@ -8,7 +8,6 @@ if [[ "${TRACE-0}" == "1" ]]; then
     set -o xtrace
 fi
 
-DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-echo ""
-echo "👊  All done."
+# install nix
+curl https://nixos.org/nix/install -sSf | sh
