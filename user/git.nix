@@ -1,13 +1,10 @@
 {
   enable = true;
 
-  userName = "Alex Fedoseev";
-  userEmail = "alex@fedoseev.mx";
+  userName = "Ollie Relph";
+  userEmail = "ollie@relph.me";
 
   aliases = {
-    dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d";
-    irebase = "!r() { git rebase -i HEAD~$1; }; r";
-    history = "log --pretty=format:'%C(yellow)%h%C(reset) - %s %C(dim)%ad <%an>' --date=relative";
   };
 
   extraConfig = {
