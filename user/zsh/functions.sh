@@ -1,95 +1,56 @@
-# `c` with no arguments opens the current directory in VS Code,
-# otherwise opens the given location
-function c() {
-  if [[ $# -eq 0 ]]; then
-    code .
+add_auth_key () {
+  ssh-copy-id $@
+}
+
+extract () {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2) tar xjf $1 ;;
+      *.tar.gz) tar xzf $1 ;;
+      *.bz2) bunzip2 $1 ;;
+      *.rar) unrar x $1 ;;
+      *.gz) gunzip $1 ;;
+      *.tar) tar xf $1 ;;
+      *.tbz2) tar xjf $1 ;;
+      *.tgz) tar xzf $1 ;;
+      *.zip) unzip $1 ;;
+      *.Z) uncompress $1 ;;
+      *) echo "'$1' cannot be extracted via extract()" ;;
+    esac
   else
-    code $@
+    echo "'$1' is not a valid file"
   fi
 }
 
-# `t` with no arguments starts new unnamed Zellij session in the current directory in,
-# otherwise it starts a session with the provided name
-function t() {
-  if [[ $# -eq 0 ]]; then
-    zellij
-  else
-    zellij --session $@
+dgrep() {
+  # A recursive, case-insensitive grep that excludes binary files
+  grep -iR "$@" * | grep -v "Binary"
+}
+
+# HTTP
+serve () {
+  PORT=$1
+  PORT="${PORT:-8080}"
+  echo http://127.0.0.1:$PORT
+  python -m SimpleHTTPServer $PORT
+}
+
+function chpwd() {
+  emulate -L zsh
+  if [[ -f .nvmrc ]] then
+    nvm use
   fi
 }
 
-# `l` with no arguments lists contents of the current directory via `tree`,
-# otherwise lists contents of given directory
-function l() {
-  if [[ $# -eq 0 ]]; then
-    tree -a -L 1 .
-  else
-    tree -a -L 1 $@
-  fi
-}
-
-# `o` with no arguments opens current folder in Finder,
-# otherwise selects given item in Finder
-function o() {
-  if [[ $# -eq 0 ]]; then
-    open -R ./$(ls | sort -n | head -1)
-  else
-    open -R $@
-  fi
-}
 
 # Prints listners on a specific port. E.g. `p 3000`
 function p() {
   lsof -n -i:$@ | grep LISTEN
 }
 
-# `w` with no arguments lists all shell aliases,
-# otherwise lists aliases, that start with the given chars
-function w() {
-  if [[ $# -eq 0 ]]; then
-    alias
-  else
-    alias | grep "^$@"
-  fi
-}
-
 # Creates a new directory and enters it
 function mkd() {
   mkdir -p $@ && cd $_
-}
-
-# Clones git repository and enters it
-function gcl() {
-  git clone $1 && cd $(basename "$1" .git)
-}
-
-# Initializes git repository and creates initial commit
-function ginit() {
-  mkd && git init && git commit -m "Initial commit" --allow-empty
-}
-
-# Prints Docker stuff
-function dls() {
-  echo "--- Images:\n"
-  docker image ls
-  echo "\n\n--- Containers:\n"
-  docker container ls
-  echo "\n\n--- Volumes:\n"
-  docker volume ls
-  echo "\n\n--- Networks:\n"
-  docker network ls
-}
-
-# Generates a new ssh entity
-function gen-ssh() {
-  ssh-keygen -f ~/.ssh/$@ -C "$@"
-  echo "Host $@" >> ~/.ssh/config
-  echo " HostName __IP__" >> ~/.ssh/config
-  echo " ForwardAgent yes" >> ~/.ssh/config
-  echo " PreferredAuthentications publickey" >> ~/.ssh/config
-  echo " IdentityFile ~/.ssh/$@" >> ~/.ssh/config
-  echo "" >> ~/.ssh/config
-  vim ~/.ssh/config
 }
 
 function colortest() {

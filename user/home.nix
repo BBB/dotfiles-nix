@@ -13,6 +13,7 @@
   programs.home-manager = { enable = true; };
 
   programs.zsh = import ./zsh.nix;
+  programs.tmux = import ./tmux.nix;
   programs.git = import ./git.nix;
   programs.neovim = import ./neovim.nix;
   programs.direnv = import ./direnv.nix;

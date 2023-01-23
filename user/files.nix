@@ -5,8 +5,7 @@
         source = ./cfg/nvim;
         recursive = true;
     };
-    ".config/zellij" = {
-        source = ./cfg/zellij;
-        recursive = true;
+    ".tmux.conf.local" = {
+        source = ./cfg/tmux/tmux.conf.local;
     };
 }
