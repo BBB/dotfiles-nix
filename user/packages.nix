@@ -16,4 +16,5 @@ with pkgs;
   fortune
   lazygit
   thefuck
+  tree-sitter
 ]
