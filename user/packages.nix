@@ -15,4 +15,5 @@ with pkgs;
   ripgrep
   fortune
   lazygit
+  thefuck
 ]
