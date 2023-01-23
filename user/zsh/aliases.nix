@@ -1,6 +1,6 @@
 {
 
-    install = "$HOME/Dev/dotfiles/install.sh";
+    install = "$HOME/dev/BBB/dotfiles-nix/install.sh";
     reload = "exec zsh -l";
     # Nix
     xx = "home-manager switch && reload";
