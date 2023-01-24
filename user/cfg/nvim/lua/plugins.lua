@@ -28,6 +28,10 @@ local plugins = {
         branch = "main",
         lazy = false,
     },
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+    },
 
     -- essentials
     {
@@ -225,14 +229,6 @@ local plugins = {
         version = "*",
         event = "BufEnter",
         config = function() require "plugins/comment" end,
-    },
-
-    {
-        "folke/todo-comments.nvim",
-        version = "*",
-        event = "BufEnter",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        config = function() require "plugins/todo-comments" end,
     },
 
     -- markdown
