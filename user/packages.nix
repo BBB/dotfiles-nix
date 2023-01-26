@@ -24,4 +24,5 @@ with pkgs;
   tmux
   tmuxPlugins.continuum
   tmuxPlugins.resurrect
+  openconnect
 ]
