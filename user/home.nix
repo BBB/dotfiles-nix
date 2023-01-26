@@ -1,6 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
+
   home.username = "ollie";
   home.homeDirectory = "/Users/ollie";
 
@@ -13,8 +14,8 @@
   programs.home-manager = { enable = true; };
 
   programs.zsh = import ./zsh.nix;
-  programs.tmux = import ./tmux.nix;
-  programs.git = import ./git.nix;
+  programs.tmux = import ./tmux.nix pkgs;
+  programs.git = import ./git.nix pkgs;
   programs.neovim = import ./neovim.nix;
   programs.direnv = import ./direnv.nix;
   programs.starship = import ./starship.nix;

@@ -35,14 +35,6 @@ serve () {
   python -m SimpleHTTPServer $PORT
 }
 
-function chpwd() {
-  emulate -L zsh
-  if [[ -f .nvmrc ]] then
-    nvm use
-  fi
-}
-
-
 # Prints listners on a specific port. E.g. `p 3000`
 function p() {
   lsof -n -i:$@ | grep LISTEN

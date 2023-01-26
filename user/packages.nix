@@ -12,9 +12,16 @@ with pkgs;
   helix
   pstree
   mkcert
+  gitAndTools.diff-so-fancy
   ripgrep
   fortune
   lazygit
   thefuck
   tree-sitter
+  gnupg
+  less
+  git
+  tmux
+  tmuxPlugins.continuum
+  tmuxPlugins.resurrect
 ]

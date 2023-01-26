@@ -5,7 +5,4 @@
         source = ./cfg/nvim;
         recursive = true;
     };
-    ".tmux.conf.local" = {
-        source = ./cfg/tmux/tmux.conf.local;
-    };
 }
