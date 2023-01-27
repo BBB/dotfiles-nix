@@ -7,7 +7,9 @@
 
   home.stateVersion = "22.05";
 
-  home.packages = import ./packages.nix pkgs;
+  home.packages = import ./packages.nix pkgs ++ [
+                                                    (pkgs.jetbrains-mono)
+                                                  ];
 
   home.file = import ./files.nix;
 
@@ -35,4 +37,8 @@
   programs.neovim = import ./neovim.nix;
   programs.direnv = import ./direnv.nix;
   programs.starship = import ./starship.nix;
+
+  fonts = {
+    fontconfig.enable = true;
+  };
 }
