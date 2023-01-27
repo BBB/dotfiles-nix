@@ -25,4 +25,5 @@ with pkgs;
   tmuxPlugins.continuum
   tmuxPlugins.resurrect
   openconnect
+  jetbrains-mono
 ]

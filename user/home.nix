@@ -7,9 +7,7 @@
 
   home.stateVersion = "22.05";
 
-  home.packages = import ./packages.nix pkgs ++ [
-                                                    (pkgs.jetbrains-mono)
-                                                  ];
+  home.packages = import ./packages.nix pkgs;
 
   home.file = import ./files.nix;
 
