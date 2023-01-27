@@ -19,8 +19,8 @@
     ll = "ls -lh";
     la = "ls -lAh";
     sl = "s # often screw this u";
-
     cpwd = "echo `pwd`/ | pbcopy";
 
     gist = "gist -p";
+    tmux = "tmux -2";
 }

@@ -4,8 +4,6 @@
   EDITOR = "nvim";
   VISUAL = "$EDITOR";
 
-  TERM = "xterm-256color";
-
   CLICOLOR = "1";
   LSCOLORS = "gxfxcxdxbxegedabagacad";
 

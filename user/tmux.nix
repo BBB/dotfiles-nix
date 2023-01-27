@@ -4,6 +4,7 @@
   extraConfig = ''
     set -g mouse on
 
+
     # TokyoNight colors for Tmux
     # https://github.com/folke/tokyonight.nvim/blob/main/extras/tmux/tokyonight_night.tmux
 
@@ -38,6 +39,12 @@
     # tmux-plugins/tmux-prefix-highlight support
     set -g @prefix_highlight_output_prefix "#[fg=#e0af68]#[bg=#16161e]#[fg=#16161e]#[bg=#e0af68]"
     set -g @prefix_highlight_output_suffix ""
+
+
+    # ======
+
+    set -g default-terminal "xterm-256color"
+    set -ag terminal-overrides ",xterm-256color:RGB"
   '';
 
   plugins = with pkgs; [

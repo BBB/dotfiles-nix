@@ -3,7 +3,8 @@ window:
     padding:
         x: 2
         y: 25
-
+env:
+  TERM: xterm-256color
 
 font:
     normal:
