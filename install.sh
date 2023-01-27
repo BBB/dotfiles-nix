@@ -64,7 +64,8 @@ nix-shell '<home-manager>' -A install
 # Apply Home Manager configuration
 echo ""
 echo "🚀  Applying Home Manager configuration..."
-home-manager switch
+nix run $DOTFILES switch -- --flake $DOTFILES
+exec $SHELL -l
 echo "🚀  Applying Home Manager configuration... done."
 
 echo ""
