@@ -11,6 +11,22 @@
 
   home.file = import ./files.nix;
 
+  editorconfig = {
+    enable = true;
+    settings = {
+      "*" = {
+        charset = "utf-8";
+        end_of_line = "lf";
+        insert_final_newline = true;
+        indent_style = "space";
+        indent_size = 2;
+      };
+      "*.md" = {
+        trim_trailing_whitespace = false;
+      };
+    };
+  };
+
   programs.home-manager = { enable = true; };
 
   programs.zsh = import ./zsh.nix;
