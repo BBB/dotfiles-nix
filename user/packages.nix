@@ -3,6 +3,7 @@ pkgs:
 with pkgs;
 
 [
+  awscli
   jq
   fd
   htop
@@ -31,4 +32,5 @@ with pkgs;
   openconnect
   jetbrains-mono
   sops
+  k9s
 ]
