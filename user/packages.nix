@@ -25,10 +25,10 @@ with pkgs;
   less
   git
   git-absorb
-  _1password
   tmux
   tmuxPlugins.continuum
   tmuxPlugins.resurrect
   openconnect
   jetbrains-mono
+  sops
 ]
