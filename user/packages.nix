@@ -19,8 +19,13 @@ with pkgs;
   thefuck
   tree-sitter
   gnupg
+  gnused
+  silver-searcher
+  fzf
   less
   git
+  git-absorb
+  _1password
   tmux
   tmuxPlugins.continuum
   tmuxPlugins.resurrect
