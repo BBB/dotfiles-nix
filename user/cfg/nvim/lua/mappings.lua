@@ -67,46 +67,6 @@ set("n", "*", "<Cmd>keepjumps normal! mi*`i<CR>")
 -- drop search highlight and clear the command line (I hope I don't do stupid things here :pray:)
 set("n", "<Esc>", "<Cmd>silent noh<CR>:<BS>", { silent = false })
 
--- zen mode
-set(
-    "",
-    "<C-z>",
-    function()
-        local filetree = require "utils/filetree"
-        local zenmode = require "utils/zenmode"
-        local view = require "utils/view"
-
-        if not filetree.is_active() then
-            zenmode.toggle()
-        else
-            local tab_windows = view.get_tab_windows()
-
-            if tab_windows == nil then
-                vim.api.nvim_err_writeln "Failed to find windows of the current tab"
-                return
-            end
-
-            if #tab_windows == 1 then
-                print "Zen mode is not available for the file tree"
-                return
-            end
-
-            if #tab_windows == 2 then
-                for _, win in ipairs(tab_windows) do
-                    local buf = vim.api.nvim_win_get_buf(win)
-                    if not filetree.is_tree(buf) then
-                        vim.api.nvim_set_current_win(win)
-                        zenmode.activate()
-                        return
-                    end
-                end
-            else
-                print "Zen mode is not available for the file tree. Select different window to activate zen mode."
-            end
-        end
-    end
-)
-
 -- close pane
 set(
     { "n", "i", "v" },
@@ -119,12 +79,6 @@ set(
         if filetree.is_tree(current_buf) then
             vim.api.nvim_err_writeln "To hide filetree, use corresponding keymap"
             return
-        end
-
-        local zenmode = require "utils/zenmode"
-
-        if zenmode.is_active() then
-            zenmode.deactivate()
         end
 
         local current_buf_info = vim.fn.getbufinfo(current_buf)[1]
@@ -240,12 +194,6 @@ set(
         if mode == "i" or mode == "v" then
             local keys = require "utils/keys"
             keys.send_keys "<Esc>"
-        end
-
-        local zenmode = require "utils/zenmode"
-
-        if zenmode.is_active() then
-            zenmode.deactivate()
         end
 
         -- NOTE: Not `wqa` due to toggleterm issue

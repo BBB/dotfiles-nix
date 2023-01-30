@@ -86,12 +86,6 @@ local plugins = {
         config = function() require "plugins/auto-session" end,
     },
 
-    {
-        "folke/zen-mode.nvim",
-        version = "*",
-        config = function() require "plugins/zen-mode" end,
-    },
-
     -- treesitter
     {
         "nvim-treesitter/nvim-treesitter",
