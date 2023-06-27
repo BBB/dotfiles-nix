@@ -3,7 +3,9 @@ let
   theme = (pkgs.fetchurl {
     url = "https://raw.githubusercontent.com/folke/tokyonight.nvim/affb21a81e6d7de073378eb86d02864c594104d9/extras/tmux/tokyonight_night.tmux";
     sha256 = "k6HGlN3X0kvyJpMMrXNuRuPK+sAzGRVwmKNKHIZHxm0=";
-  }); in {
+  });
+in
+{
   enable = true;
   extraConfig = ''
     source-file ${theme}
