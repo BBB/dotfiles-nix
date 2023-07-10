@@ -16,6 +16,10 @@ in
 
     set -g default-terminal "xterm-256color"
     set -ag terminal-overrides ",xterm-256color:RGB"
+
+    # ======
+    # vim mode
+    set-window-option -g mode-keys vi
   '';
 
   plugins = with pkgs; [
