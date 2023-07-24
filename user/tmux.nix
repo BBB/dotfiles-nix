@@ -14,7 +14,8 @@ in
 
     # ======
 
-    set -g default-terminal "xterm-256color"
+    # this doesn't appear to work $TERM is not set to xterm-256color
+    set -g default-terminal xterm-256color
     set -ag terminal-overrides ",xterm-256color:RGB"
 
     # ======
