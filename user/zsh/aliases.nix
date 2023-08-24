@@ -28,4 +28,5 @@
   "olx:vpn" = "sudo -v && echo -e \"$(op item get OKTA --fields password)\n2\n$( op item get OKTA --otp )\"  | sudo openconnect vpn02.olxcorp.com --authgroup \"OLXGROUP\" -u ollie.relph --passwd-on-stdin";
   "nix:upgrade" = "sudo -i sh -c 'nix-channel --update && nix-env -iA nixpkgs.nix --fallback && launchctl remove org.nixos.nix-daemon && launchctl load /Library/LaunchDaemons/org.nixos.nix-daemon.plist'";
   "nix:reinstall" = "~/dev/BBB/dotfiles-nix/install.sh";
+  "nix:update" = "cd ~/dev/BBB/dotfiles-nix/ && nix flake update && cd -";
 }
