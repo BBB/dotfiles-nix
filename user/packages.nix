@@ -33,6 +33,7 @@ with pkgs;
   jetbrains-mono
   sops
   k9s
+  moreutils
   ## block ick
   # These are so intellij file watchers has something to use
   nodejs-18_x
