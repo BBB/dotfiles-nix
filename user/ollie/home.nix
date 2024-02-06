@@ -6,9 +6,9 @@
 
   home.stateVersion = "22.05";
 
-  home.packages = import ./packages.nix pkgs;
+  home.packages = import ../shared/packages.nix pkgs;
 
-  home.file = import ./files.nix;
+  home.file = import ../shared/files.nix;
 
   editorconfig = {
     enable = true;
@@ -28,12 +28,12 @@
 
   programs.home-manager = { enable = true; };
 
-  programs.zsh = import ./zsh.nix;
-  programs.tmux = import ./tmux.nix pkgs;
-  programs.git = import ./git.nix pkgs;
-  programs.neovim = import ./neovim.nix;
-  programs.direnv = import ./direnv.nix;
-  programs.starship = import ./starship.nix;
+  programs.zsh = import ../shared/zsh.nix;
+  programs.tmux = import ../shared/tmux.nix pkgs;
+  programs.git = import ../shared/git.nix pkgs;
+  programs.neovim = import ../shared/neovim.nix;
+  programs.direnv = import ../shared/direnv.nix;
+  programs.starship = import ../shared/starship.nix;
 
   fonts = {
     fontconfig.enable = true;

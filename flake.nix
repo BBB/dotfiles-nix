@@ -17,8 +17,9 @@
         # Note: I am sure this could be done better with flake-utils or something
         pkgs = nixpkgs.legacyPackages.aarch64-darwin;
 
-        modules = [ ./user/home.nix ];
+        modules = [ ./user/ollie/home.nix ];
       };
+
     };
   };
 }
