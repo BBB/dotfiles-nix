@@ -40,12 +40,6 @@ echo "📜  Ensuring history file: $HOME/.zsh_history..."
 touch "$HOME/.zsh_history"
 echo "📜  Ensuring history file: $HOME/.zsh_history... done."
 
-# Ensure .hushlogin (to get rid of "Last login...")
-echo ""
-echo "📋  Ensuring .hushlogin: $HOME/.hushlogin..."
-touch "$HOME/.hushlogin"
-echo "📋  Ensuring .hushlogin: $HOME/.hushlogin... done."
-
 # Build binaries
 echo ""
 echo "🛠️  Building binaries..."
