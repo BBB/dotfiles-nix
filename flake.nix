@@ -19,6 +19,12 @@
 
         modules = [ ./user/ollie/home.nix ];
       };
+      "orelph" = home-manager.lib.homeManagerConfiguration {
+        # Note: I am sure this could be done better with flake-utils or something
+        pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+
+        modules = [ ./user/orelph/home.nix ];
+      };
 
     };
   };
