@@ -7,6 +7,10 @@
       condition = "gitdir:~/dev/olx/";
       path = "~/dev/olx/.gitconfig";
     }
+    {
+      condition = "gitdir:~/dev/ford/";
+      path = "~/dev/ford/.gitconfig";
+    }
   ];
 
   diff-so-fancy = {
