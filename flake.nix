@@ -19,7 +19,7 @@
 
         modules = [ ./user/ollie/home.nix ];
       };
-      "orelph" = home-manager.lib.homeManagerConfiguration {
+      "orelph@MGC1W9MXY070" = home-manager.lib.homeManagerConfiguration {
         # Note: I am sure this could be done better with flake-utils or something
         pkgs = nixpkgs.legacyPackages.aarch64-darwin;
 
