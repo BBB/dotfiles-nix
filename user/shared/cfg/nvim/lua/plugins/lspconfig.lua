@@ -19,7 +19,7 @@ mason.setup {}
 
 mason_cfg.setup {
     ensure_installed = {
-        "sumneko_lua",
+        "lua_ls",
         -- "ocamllsp", -- FIXME: Ocaml LSP is broken
         "rescriptls",
         -- NOTE: rust is handled by the `rust-tools`
@@ -29,7 +29,7 @@ mason_cfg.setup {
 -- lua
 neodev.setup {}
 
-lsp_cfg.sumneko_lua.setup {
+lsp_cfg.lua_ls.setup {
     settings = {
         Lua = {
             format = {
