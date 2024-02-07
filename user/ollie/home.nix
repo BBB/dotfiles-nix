@@ -1,6 +1,14 @@
 { pkgs, lib, ... }:
 
 {
+
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+    };
+  };
+
   home.username = "ollie";
   home.homeDirectory = "/Users/ollie";
 
