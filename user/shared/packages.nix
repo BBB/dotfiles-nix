@@ -35,6 +35,7 @@ with pkgs;
   k9s
   moreutils
   alacritty
+  raycast
   ## block ick
   # These are so intellij file watchers has something to use
   nodejs-18_x
