@@ -7,7 +7,6 @@ plugin.setup {
     },
     disable_netrw = true,
     hijack_netrw = true,
-    open_on_setup = false,
     hijack_cursor = true,
     hijack_unnamed_buffer_when_opening = false,
     sync_root_with_cwd = false,
@@ -23,12 +22,6 @@ plugin.setup {
         adaptive_size = false,
         side = "left",
         width = 30,
-        hide_root_folder = false,
-        mappings = {
-            list = {
-                { key = "<C-e>", action = "" },
-            },
-        },
     },
     git = {
         enable = true,
