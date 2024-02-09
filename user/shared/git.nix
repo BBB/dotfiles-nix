@@ -11,6 +11,10 @@
       condition = "gitdir:~/dev/ford/";
       path = "~/dev/ford/.gitconfig";
     }
+    {
+      condition = "gitdir:~/dev/BBB/";
+      path = "~/dev/BBB/.gitconfig";
+    }
   ];
 
   diff-so-fancy = {
