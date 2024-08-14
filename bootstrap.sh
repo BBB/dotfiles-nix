@@ -8,6 +8,5 @@ if [[ "${TRACE-0}" == "1" ]]; then
     set -o xtrace
 fi
 
-
-# install nix
-curl https://nixos.org/nix/install -sSf | sh
+# install nix using https://github.com/DeterminateSystems/nix-installer
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
