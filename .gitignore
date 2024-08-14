@@ -1,2 +1,3 @@
 target/
 /user/shared/cfg/zellij/plugins/**
+.idea
