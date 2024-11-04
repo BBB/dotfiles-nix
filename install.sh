@@ -46,22 +46,17 @@ echo "🛠️  Building binaries..."
 $DOTFILES/build.sh
 echo "🛠️  Building binaries... done."
 
-
-# Install Home Manager configuration
 echo ""
-echo "🚀  Applying Home Manager configuration..."
+echo "🚀  Install Home Manager configuration..."
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
 nix-channel --update
-nix-shell '<home-manager>' -A install
 
-
-# Apply Home Manager configuration
 echo ""
-echo "🚀  Applying Home Manager configuration..."
-nix run $DOTFILES switch -- --flake $DOTFILES
+echo "🚀  Applying configuration..."
+nix run nix-darwin -- switch --flake $DOTFILES
 exec $SHELL -l
-echo "🚀  Applying Home Manager configuration... done."
+echo "🚀  Applying configuration... done."
 
 echo ""
 echo "👊  All done."

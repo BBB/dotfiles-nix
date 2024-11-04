@@ -2,30 +2,42 @@
   description = "My Home Manager Flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-24.05-darwin";
+    nix-darwin.url = "github:LnL7/nix-darwin";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }: {
-    defaultPackage.aarch64-darwin = home-manager.defaultPackage.aarch64-darwin;
+  outputs = { nixpkgs, nix-darwin, home-manager, ... }: {
     formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixpkgs-fmt;
-    homeConfigurations = {
-      "ollie" = home-manager.lib.homeManagerConfiguration {
-        # Note: I am sure this could be done better with flake-utils or something
-        pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-
-        modules = [ ./user/ollie/home.nix ];
+    darwinConfigurations = {
+      "MGC1W9MXY070" = nix-darwin.lib.darwinSystem {
+        modules = [
+          ./hosts/configuration.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager = {
+              users.orelph = import ./user/orelph/home.nix;
+            };
+          }
+        ];
+        specialArgs = { user = "orelph"; };
       };
-      "orelph@MGC1W9MXY070" = home-manager.lib.homeManagerConfiguration {
-        # Note: I am sure this could be done better with flake-utils or something
-        pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-
-        modules = [ ./user/orelph/home.nix ];
+      "MacBook-Pro" = nix-darwin.lib.darwinSystem {
+        modules = [
+          ./hosts/configuration.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager = {
+              users.ollie = import ./user/ollie/home.nix;
+            };
+          }
+        ];
+        specialArgs = { user = "ollie"; };
       };
-
     };
   };
 }
