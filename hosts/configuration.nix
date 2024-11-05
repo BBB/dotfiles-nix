@@ -3,6 +3,12 @@
   services = {
     nix-daemon.enable = true;
   };
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+  };
+
   system.stateVersion = 5;
 
   security = {
