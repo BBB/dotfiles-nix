@@ -5,6 +5,10 @@
   };
   system.stateVersion = 5;
 
+  security = {
+    pam.enableSudoTouchIdAuth = true;
+  };
+
   nixpkgs = {
     hostPlatform = "aarch64-darwin";
   };
@@ -15,6 +19,7 @@
       home = "/Users/ollie";
     };
   };
+
   system.defaults = {
     dock = {
       autohide = true;
