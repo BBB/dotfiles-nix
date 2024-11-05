@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs, user, ... }:
+{ pkgs, nixpkgs, user, mac-app-util, ... }:
 {
   services = {
     nix-daemon.enable = true;
@@ -7,6 +7,9 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    sharedModules = [
+      mac-app-util.homeManagerModules.default
+    ];
   };
 
   system.stateVersion = 5;
