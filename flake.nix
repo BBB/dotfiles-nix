@@ -45,7 +45,7 @@
               };
             }
           ];
-          specialArgs = { user = "ollie";inherit mac-app-util; };
+          specialArgs = { user = "ollie"; inherit mac-app-util; };
         };
       };
     };
